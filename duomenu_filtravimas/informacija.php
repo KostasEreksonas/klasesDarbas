@@ -5,16 +5,6 @@ function elementuSkaicius(array $zmones): int
     return count($zmones);
 }
 
-function puslapioHead(): void
-{
-    echo '<head>
-    <meta charset="UTF-8">
-    <title>Duomenų filtravimas</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>';
-}
-
 function lentelesHead(): void
 {
     echo '
@@ -29,32 +19,21 @@ function lentelesHead(): void
         </thead>';
 }
 
-function irasytiDuomenis(array $zmones): void
+function getAmzius(): int
 {
-    for ($i = 0; $i < elementuSkaicius($zmones); $i++) {
-        echo '<tr>';
-        echo '<th scope="row">' . $i + 1 . '</th>';
-        foreach ($zmones[$i] as $value) {
-            echo '<td>' . $value . '</td>';
-        }
-        echo '</tr>';
-    }
+    return $_POST['amzius'];
 }
 
-function atvaizduotiDuomenis(array $zmones): void
+function getPareigos(): string
 {
-    puslapioHead();
-    lentelesHead();
-    echo '<tbody>';
-    irasytiDuomenis($zmones);
-    echo '</tbody></table>';
+    return $_POST['pareigos'];
 }
 
 function filtruotiDuomenis(array $zmones): array
 {
     $filteredArray = [];
     for ($i = 0; $i < elementuSkaicius($zmones); $i++) {
-        if ($zmones[$i]['amzius'] >= $_GET['amzius']) {
+        if ($zmones[$i]['amzius'] >= getAmzius() && $zmones[$i]['pareigos'] !== getPareigos()) {
             $filteredArray[] = $zmones[$i];
         }
     }
@@ -80,7 +59,6 @@ function irasytiDuomenisPagalAmziu(array $zmones): void
 
 function atvaizduotiDuomenisPagalAmziu(array $zmones): void
 {
-    puslapioHead();
     lentelesHead();
     echo '<tbody>';
     irasytiDuomenisPagalAmziu($zmones);
@@ -97,5 +75,4 @@ $zmones = [
     ['vardas'=>'Kęstutis', 'amzius'=>30, 'pareigos'=>'Programuotojas'],
 ];
 
-//atvaizduotiDuomenis($zmones);
 atvaizduotiDuomenisPagalAmziu($zmones);
