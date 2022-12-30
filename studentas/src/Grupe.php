@@ -6,17 +6,13 @@ class Grupe
     private string $name;
     private string $code;
     private string $time;
-    private string $adresas;
-    private int $studentuKiekis;
 
-    public function __construct(int $id, string $name, string $code, string $time, string $adresas, int $studentuKiekis)
+    public function __construct(int $id, string $name, string $code, string $time)
     {
         $this->id = $id;
         $this->name = $name;
         $this->code = $code;
         $this->time = $time;
-        $this->adresas = $adresas;
-        $this->studentuKiekis = $studentuKiekis;
     }
     public function getId(): int
     {
@@ -33,13 +29,5 @@ class Grupe
     public function getTime(): string
     {
         return $this->time;
-    }
-    public function getAdresas(): string
-    {
-        return $this->adresas;
-    }
-    public function getStudentuKiekis(): int
-    {
-        return $this->studentuKiekis;
     }
 }

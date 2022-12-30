@@ -1,9 +1,13 @@
 <?php
 
+include 'Studentas.php';
+
 $option = isset($_POST['selectStudents']) ? $_POST['selectStudents'] : false;
 
-if ($option === 1) {
-    // Isvesti masyva su su vakariniais studentais
-} elseif ($option === 2) {
-    // Isvesti masyva su su vakariniais studentais
+if ($option === "Vakarinis") {
+    echo $option . ' Vakarinis';
+} elseif ($option === "Dieninis") {
+    echo $option . ' Dieninis';
+} else {
+    echo gettype($option) . 'Pasirinkite studentų filtravimo sąlygą';
 }
