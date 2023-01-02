@@ -49,6 +49,15 @@ class Studentas
         }
         return $lytis;
     }
+    public function getDate(): DateTime
+    {
+        $metai = $this->getYear();
+        $menuo = substr($this->ak, 3, 2);
+        $diena = substr($this->ak, 5, 2);
+        $gimimoData = new DateTime();
+        $gimimoData->setDate($metai, $menuo, $diena);
+        return $gimimoData;
+    }
     public function getYear(): int
     {
         $metai = '';
@@ -61,7 +70,7 @@ class Studentas
         } elseif ($firstNum === 5 || $firstNum === 6) {
             $metai = '20' . $yearNum;
         }
-        return (int) $metai;
+        return $metai;
     }
     public function getMonth(): int
     {

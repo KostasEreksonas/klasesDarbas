@@ -37,8 +37,7 @@ function spausdintiLentele(array $male, array $female): void
 {
     echo '<div class="d-flex justify-content-center text-center"><section class="dflex justify-content-center"><h1 class="text-center">Vyrai</h1><ul class="list-group">';
     spausdintiAsmenis($male);
-    echo '</ul></section>';
-    echo '<section class="dflex justify-content-center"><h1 class="text-center">Moterys</h1><ul class="list-group">';
+    echo '</ul></section><section class="dflex justify-content-center"><h1 class="text-center">Moterys</h1><ul class="list-group">';
     spausdintiAsmenis($female);
     echo '</ul></section></div>';
 }
@@ -58,7 +57,7 @@ function gimimoMetai(array $studentas): void
     $amzius = [];
     for ($x = 0; $x < studentuKiekis($studentas); $x++) {
         $id = $studentas[$x]->getId();
-        $amzius[$id] = $studentas[$x]->getYear();
+        $amzius[$id] = $studentas[$x]->getDate();
     }
     gautiJauniausia($amzius, $studentas);
     gautiVyriausia($amzius, $studentas);
