@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Užduotys</title>
+</head>
+<body>
+  <h1>Pirma užduotis</h1>
+  <p id="apskritimas"></p>
+  <p id="apskritimas_math"></p>
+  <script>
+    let r = 15;
+    // Naudojant operatorius
+    let pi = 3.14159;
+    let ilgis = 2*r*pi;
+    let plotas = pi*r**2;
+    document.getElementById("apskritimas").innerHTML = 'Apskritimo spindulys: ' + r + ', apskritimo ilgis: ' + ilgis + ', apskritimo plotas: ' + plotas;
+    // Naudojant Math
+    let ilgis_math = 2*r*Math.PI;
+    let plotas_math = Math.PI*Math.pow(r,2);
+    document.getElementById("apskritimas_math").innerHTML = 'Apskritimo spindulys: ' + r + ', apskritimo ilgis: ' + ilgis_math + ', apskritimo plotas: ' + plotas_math;
+  </script>
+  <h1>Antra užduotis</h1>
+  <script>
+    // Sprendimas naudojant Math
+    let a = -5;
+    let b = 0;
+    let c = -4;
+    let d = 4;
+    let x,y;
+    const intersection = [Math.min(c, d), Math.max(a, b)];
+    document.write('Intervalų [' + a + ',' + b + '] ir [' + c + ',' + d + '] sankirtos rėžiai yra [' + intersection + ']<br>')
+
+
+    // Sprendimas naudojant if sąlygą
+    const range1 = [a, b];
+    const range2 = [c, d];
+    const intersection_if = []
+    if (range2[0] < range1[1]) {
+      x = range2[0];
+      y = range1[1];
+      intersection_if.push(x, y);
+      document.write('Intervalų [' + range1 + '] ir [' + range2 + '] sankirtos rėžiai yra [' + intersection_if + ']')
+    } else {
+          document.write('Sankirta tarp duotų rėžių neegzistuoja.')
+    }
+  </script>
+  <h1>Trečia užduotis</h1>
+  <div>Kintamieji duomenys apie studentą atvaizduojami konsolėje</div>
+  <script>
+      let vardas = "Kostas";
+      let pavarde = "Ereksonas";
+      let kursas = 1;
+      let istaiga = "CodeAcademy";
+      const pazymiai = [6, 7, 8];
+      console.log(vardas, pavarde, kursas, istaiga, pazymiai)
+  </script>
+  <h1>Ketvirta užduotis</h1>
+  <div id="duomenys">Paspauskite mygtuką, kad pamatytumėte duomenis apie studentą</div>
+  <button onclick="document.getElementById('duomenys').innerHTML = html">Spauskite čia</button>
+  <script>
+      let html = vardas + ' ' + pavarde + ', mokosi ' + istaiga + ', ' + kursas + ' kurse, jo pažymiai: ' + pazymiai + '.';
+  </script>
+  <h1>Penkta užduotis</h1>
+  <script>
+      window.alert('\"Parametro \'vardas\' tipas yra \'' + typeof vardas + '\' \"\n' +
+      '\"Parametro \'pavarde\' tipas yra \'' + typeof pavarde + '\' \"\n' +
+      '\"Parametro \'kursas\' tipas yra \'' + typeof kursas + '\' \"\n' +
+      '\"Parametro \'istaiga\' tipas yra \'' + typeof istaiga + '\' \"\n' +
+      '\"Parametro \'pazymiai\' tipas yra \'' + typeof pazymiai + '\' \"');
+      document.write('\"Parametro \'vardas\' tipas yra \'' + typeof vardas + '\' \"<br>');
+      document.write('\"Parametro \'pavarde\' tipas yra \'' + typeof pavarde + '\' \"<br>');
+      document.write('\"Parametro \'kursas\' tipas yra \'' + typeof kursas + '\' \"<br>');
+      document.write('\"Parametro \'istaiga\' tipas yra \'' + typeof istaiga + '\' \"<br>');
+      document.write('\"Parametro \'pazymiai\' tipas yra \'' + typeof pazymiai + '\' \"<br>');
+  </script>
+</body>
+</html>

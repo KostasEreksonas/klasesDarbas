@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event listener</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<h1>Pirma užduotis</h1>
+<label for="Hello">Hello World</label>
+<input type="text" id="Hello">
+<input type="button" id="button1" value="Spausti čia">
+<h1>Antra užduotis</h1>
+<input type="button" id="button2" value="Rodyti formą">
+<div id="forma">
+    <p>Pasirinkite automobilio gamintoją</p>
+    <form action="http://loalhost/placeholder.php" method="POST">
+        <input type="radio" id="audi" name="modelis" value="Audi">
+        <label for="audi">Audi</label><br>
+        <input type="radio" id="bmw" name="modelis" value="BMW">
+        <label for="bmw">BMW</label><br>
+        <input type="radio" id="mercedes" name="modelis" value="Mercedes">
+        <label for="mercedes">Mercedes</label><br>
+        <input type="button" value="Siųsti duomenis">
+    </form>
+</div>
+<h1>Trečia užduotis</h1>
+<div>
+    <form>
+        <label for="gamintojas">Gamintojas</label><br>
+        <input type="text" id="gamintojas" name="gamintojas"><br>
+        <label for="modelis">Modelis</label><br>
+        <input type="text" id="modelis" name="modelis"><br>
+        <label for="metai">Metai</label><br>
+        <input type="text" id="metai" name="metai"><br>
+        <label for="salis">Šalis</label><br>
+        <input type="text" id="salis" name="salis"><br><br>
+        <input type="button" id="button3" value="Įrašyti duomenis">
+    </form>
+    <br>
+    <table id="lentele">
+        <tr>
+            <th>Gamintojas</th>
+            <th>Modelis</th>
+            <th>Metai</th>
+            <th>Šalis</th>
+        </tr>
+        <tr>
+            <td>Audi</td>
+            <td>A6 C5</td>
+            <td>1998</td>
+            <td>Vokietija</td>
+        </tr>
+        <tr>
+            <td>Mercedes-Benz</td>
+            <td>C 320</td>
+            <td>2003</td>
+            <td>Vokietija</td>
+        </tr>
+        <tr id="last-row">
+            <td>Honda</td>
+            <td>CR-V</td>
+            <td>2005</td>
+            <td>Japonija</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <h1>Ketvirta užduotis</h1>
+    <form>
+        <label for="text">Tekstas</label><br>
+        <textarea name="text" id="text" cols="30" rows="10"></textarea>
+    </form>
+    <span id="realtime"></span>
+</div>
+<script src="js/event-listener.js"></script>
+</body>
+</html>

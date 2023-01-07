@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-uzduotys</title>
+</head>
+<body>
+<p>Masyvas</p>
+<script>
+  let masyvas = [1,5,9,78,5,6,2,8];
+  var i = 0;
+  var ats = '';
+  //while (masyvas.length > i) {
+  //  ats += i + ' elementas yra lygus ' + masyvas[i] + '<br>';
+  //  document.querySelector('body > p').innerHTML = ats;
+  //  i++;
+  //}
+
+  for (let i = 0; i < masyvas.length; i++) {
+    ats += i + ' elementas yra lygus ' + masyvas[i] + '<br>';
+    document.querySelector('body > p').innerHTML = ats;
+  }
+</script>
+</body>
+</html>

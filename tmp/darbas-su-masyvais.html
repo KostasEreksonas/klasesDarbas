@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Darbas su masyvais</title>
+</head>
+<body>
+<h1>Masyvų užduotys</h1>
+<h2>Pirma užduotis</h2>
+<p id="pirma"></p>
+<script>
+    let a = ['A', 'B', '1', 1, 2, 'Vardas', '"', [], null];
+    let i = 0;
+    let ats = '';
+    while (a.length > i) {
+        ats += 'Elementas Nr. ' + i + ' yra ' + a[i] + '<br>';
+        document.getElementById('pirma').innerHTML = ats;
+        i += 2;
+    }
+</script>
+
+<h2>Antra užduotis</h2>
+<p id="antra"></p>
+<script>
+    num = 3;
+    msg = 'Renkame kas ' + num + ' elementą<br>';
+    let j = 0;
+    let ats2 = '';
+    while (a.length > j) {
+        ats2 += 'Elementas Nr. ' + j + ' yra ' + a[j] + '<br>';
+        document.getElementById('antra').innerHTML = msg + ats2;
+        j += num;
+    }
+</script>
+<h2>Trečia užduotis</h2>
+<p id="trecia"></p>
+<script>
+    let skaiciai = []
+    for (let x = 0; x < a.length; x++) {
+        if (typeof a[x] == "number") {
+            skaiciai.push(a[x]);
+        }
+    }
+    document.getElementById('trecia').innerHTML = 'Duotame masyve esantys skaičiai yra: ' + skaiciai;
+</script>
+<h2>Ketvirta užduotis</h2>
+<p id="ketvirta"></p>
+<script>
+    let count = 0;
+    let ats4 = '';
+    for (let y = 0; y < a.length; y++) {
+        if (typeof a[y] == "object") {
+            count += 1;
+        }
+    }
+    ats4 = 'Duotame masyve yra ' + count + ' \'object\' tipo kintamieji.'
+    document.getElementById('ketvirta').innerHTML = ats4;
+</script>
+<h2>Penkta užduotis</h2>
+<p id="penkta"></p>
+<script>
+    let ats5 = '';
+    let strings = [];
+    for (let z = 0; z < a.length; z++) {
+        if (typeof a[z] == "string") {
+            strings.push(a[z]);
+        }
+    }
+    for (let s = 0; s < strings.length; s++) {
+        if (s === strings.length-1) {   // Po paskutinio elemento nedėti brūkšnio
+            ats5 += strings[s];
+        } else {
+            ats5 += strings[s] + '-';
+        }
+    }
+    document.getElementById('penkta').innerHTML = ats5;
+    //document.getElementById('penkta').innerHTML = strings.join('-');
+</script>
+</body>
+</html>

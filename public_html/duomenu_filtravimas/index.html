@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Duomenų filtravimas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<form id="forma">
+    <div class="mb-3">
+        <label class="col-12 text-center form-label" for="amzius">Amžius nuo</label><br>
+        <input class="form-control" type="text" id="amzius" name="amzius">
+        <label class="col-12 text-center form-label" for="pareigos">Pareigos</label><br>
+        <input class="form-control" type="text" id="pareigos" name="pareigos">
+    </div>
+    <input type="submit" class="p-2 col-5 btn btn-primary" value="Siųsti duomenis">
+    <input type="submit" class="p-2 col-5 btn btn-secondary" value="Ištrinti studentą">
+</form>
+<br>
+<div id="data"></div>
+</body>
+<script>
+    const form = document.getElementById('forma');
+    form.onsubmit = function () {
+        let request = new XMLHttpRequest();
+        let file = 'informacija.php';
+        let data = new FormData(form);
+        console.log(data);
+        request.open("post", file, true);
+        request.send(data);
+        request.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                document.getElementById('data').innerHTML = this.responseText;
+            }
+        };
+        return false;
+    }
+</script>
+</html>

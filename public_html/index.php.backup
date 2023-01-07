@@ -1,0 +1,81 @@
+<?php
+
+//$arr = ['Jurgis', 'Antanas', 'Aloyzas', 'Martynas'];
+$arr = [
+    ['vardas'=>'Jonas', 'pavarde'=>'Jonaitis', 'amzius'=>25],
+    ['vardas'=>'Jurgis', 'pavarde'=>'Jurgaitis', 'amzius'=>22],
+    ['vardas'=>'Petras', 'pavarde'=>'Petraitis', 'amzius'=>28],
+    ['vardas'=>'Antanas', 'pavarde'=>'Antanaitis', 'amzius'=>20]
+];
+$jsonString1 = json_encode($arr) . '<br>';
+$jsonString2 = '{"vardas":"Jurgis","pavarde":"Jonaitis","amzius":25}';
+
+echo $jsonString1;
+echo $jsonString2;
+
+//var_dump(json_decode($jsonString2, true));
+//$newArr = json_decode($jsonString2, true);
+//echo $newArr;
+
+$studentai = [
+    ['vardas'=>'Jonas', 'pavarde'=>'Jonaitis', 'amzius'=>25],
+    ['vardas'=>'Jurgis', 'pavarde'=>'Jurgaitis', 'amzius'=>22],
+    ['vardas'=>'Petras', 'pavarde'=>'Petraitis', 'amzius'=>28],
+    ['vardas'=>'Antanas', 'pavarde'=>'Antanaitis', 'amzius'=>20]
+];
+$skaicius = count($studentai);
+
+/**
+ * @param array $studentai
+ * $return void
+ */
+function printStudents(array $arr, $len): void
+{
+    for ($i = 0; $i < $len; $i++) {
+        echo '<br>Studento vardas: ' . $arr[$i]['vardas'] . ', pavardė: ' . $arr[$i]['pavarde'] . ', amžius: ' . $arr[$i]['amzius'] . ' metai.';
+    }
+}
+
+printStudents($studentai, $skaicius);
+
+echo '<br>' . json_encode($studentai);
+
+function gautiAmziu(array $studentai): int
+{
+    return $studentai['amzius'];
+}
+
+function gautiStudentuAmziausSuma(array $studentai): int
+{
+    $suma = 0;
+    foreach ($studentai as $studentas) {
+        $suma += gautiAmziu($studentas);
+    }
+    return $suma;
+}
+
+function skaiciuotiStudentuAmziausVidurki(array $studentai): float
+{
+    $suma = gautiStudentuAmziausSuma($studentai);
+    $kiekis = count($studentai);
+
+    return $suma / $kiekis;
+}
+
+echo '<br>Studentų amžiaus vidurkis yra: ' . skaiciuotiStudentuAmziausVidurki($studentai) . ' metai.';
+
+echo '<br>' . (json_encode($studentai));
+
+function gautiJSONString(): string
+{
+    return file_get_contents('duomenys.json');
+}
+
+// ------------------------------- STUDENTO CRUD ----------------------------------------
+function sukurtiStudent(array $studentai): void
+{
+    $studentuSarasas = gautiStudentus();
+    $studentai[] = $studentas;
+    $jsonString = json_encode($studentai);
+    file_put_contents('duomenys.json', $jsonString);
+}
